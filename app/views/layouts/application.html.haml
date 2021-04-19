@@ -11,6 +11,7 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
     .container
+      = render 'layouts/header'
       %p.notice= notice
       %p.alert= alert
       = yield
