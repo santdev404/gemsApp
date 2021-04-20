@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-    validates :title,  presence: true
+    validates :title,:short_description, :language, :level, :price,  presence: true
     validates :description, presence: true, length: { :minimum => 5 }
 
     belongs_to :user
@@ -22,5 +22,15 @@ class Course < ApplicationRecord
     # def to_s
     #     slug
     # end
+
+    LANGUAGES = [:"English", :"Russian", :"Polish"]
+    def self.languages 
+        LANGUAGES.map { |language| [language, language]}
+    end
+
+    LEVELS = [:"Begginer", :"Intermediate", :"Advance"]
+    def self.levels 
+        LEVELS.map { |level| [level, level]}
+    end
 
 end
